@@ -3,8 +3,8 @@ package collections.arraylist;
 import java.util.Collection;
 
 public class Car {
-    String brand;
-    int number;
+  private   String brand;
+    private int number;
 
     public Car(String brand, int number) {
         this.brand = brand;

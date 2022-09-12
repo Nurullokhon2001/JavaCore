@@ -38,7 +38,7 @@ public class CarListTest {
     }
 
     @Test
-    public  void clearAllArray() {
+    public void clearAllArray() {
         car.clear();
         assertEquals(0, car.getSize());
     }
@@ -47,4 +47,26 @@ public class CarListTest {
     public void indexOfBound() {
         car.get(101);
     }
+
+    @Test
+    public void insertInMiddle() {
+        Car cars = new Car("Range Rover", 777);
+        car.add(cars, 50);
+        assertEquals(car.get(50).getBrand(), cars.getBrand());
+    }
+
+    @Test
+    public void insertInEnd() {
+        Car cars = new Car("Range Rover", 777);
+        car.add(cars, 100);
+        assertEquals(car.get(100).getBrand(), cars.getBrand());
+    }
+
+    @Test
+    public void insertInFirst() {
+        Car cars = new Car("Range Rover", 777);
+        car.add(cars, 0);
+        assertEquals(car.get(0).getBrand(), cars.getBrand());
+    }
+
 }

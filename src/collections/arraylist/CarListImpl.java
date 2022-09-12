@@ -22,6 +22,22 @@ public class CarListImpl implements CarList {
     }
 
     @Override
+    public void add(Car car, int index) {
+        if (size >= array.length) {
+            array = Arrays.copyOf(array, array.length * 2);
+        }
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        System.arraycopy(array, index, array, index + 1, size - index);
+//        for (int i = size; i > index; i--) {
+//            array[i] = array[i - 1];
+//        }
+        array[index] = car;
+        size++;
+    }
+
+    @Override
     public boolean remove(Car car) {
         for (int i = 0; i < size - 1; i++) {
             if (array[i] == car) {
