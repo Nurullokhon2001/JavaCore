@@ -10,7 +10,7 @@ public class CarListTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        car = new CarListImpl();
+        car = new CarArrayListImpl();
         for (int i = 0; i < 100; i++) {
             car.add(new Car("Brand" + i, i));
         }

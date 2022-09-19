@@ -2,7 +2,7 @@ package collections.arraylist;
 
 import java.util.Arrays;
 
-public class CarListImpl implements CarList {
+public class CarArrayListImpl implements CarList {
     public Car[] array = new Car[10];
     int size = 0;
 
