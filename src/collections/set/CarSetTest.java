@@ -45,4 +45,10 @@ public class CarSetTest {
         car.add(new Car("Brand", 7));
         assertEquals(100, car.size());
     }
+
+    @Test
+    public void containsElement() {
+        assertTrue(car.contains(new Car("Brand", 1)));
+        assertFalse(car.contains(new Car("Brand1", 1)));
+    }
 }

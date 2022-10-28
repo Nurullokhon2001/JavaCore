@@ -73,6 +73,27 @@ public class CarSetImpl implements CarSet {
     }
 
     @Override
+    public boolean contains(Car car) {
+        int carPosition = getElementPosition(car, array.length);
+        Entry entry = array[carPosition];
+        while (true) {
+            if (array[carPosition] == null) {
+                return false;
+            } else {
+                 if (entry != null){
+                     if (entry.value.equals(car)) {
+                         return true;
+                     } else {
+                         entry = entry.next;
+                     }
+                 }else {
+                     return false;
+                 }
+            }
+        }
+    }
+
+    @Override
     public void clear() {
         array = new Entry[INITIAL_CAPACITY];
         size = 0;

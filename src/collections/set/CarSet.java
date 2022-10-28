@@ -1,8 +1,9 @@
 package collections.set;
 
 import collections.arraylist.Car;
+import collections.arraylist.CarCollections;
 
-public interface CarSet {
+public interface CarSet extends CarCollections {
     boolean add(Car car);
 
     boolean remove(Car car);
@@ -10,5 +11,7 @@ public interface CarSet {
     void clear();
 
     int size();
+
+    boolean contains(Car car);
 
 }

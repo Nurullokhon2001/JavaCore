@@ -12,7 +12,7 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
-    public void add(Car car) {
+    public boolean add(Car car) {
         if (size == 0) {
             first = new Node(null, car, null);
             last = first;
@@ -22,6 +22,7 @@ public class CarLinkedListImpl implements CarList {
             secondLast.next = last;
         }
         size++;
+        return true;
     }
 
     @Override
@@ -58,6 +59,19 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
+    public boolean contains(Car car) {
+        Node node = first;
+        for (int i = 1; i < size; i++) {
+            if (node.value.equals(car)) {
+                return true;
+            } else {
+                node = node.next;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public boolean removeAt(int index) {
         Node node = getNode(index);
         Node nodeNext = node.next;
@@ -77,7 +91,7 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return size;
     }
 
@@ -87,6 +101,7 @@ public class CarLinkedListImpl implements CarList {
         last = null;
         size = 0;
     }
+
 
     private Node getNode(int index) {
         if (index < 0 || index >= size) {
