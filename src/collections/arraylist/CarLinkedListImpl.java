@@ -1,5 +1,7 @@
 package collections.arraylist;
 
+import java.util.Iterator;
+
 public class CarLinkedListImpl implements CarList {
 
     private Node first;
@@ -112,6 +114,25 @@ public class CarLinkedListImpl implements CarList {
             node = node.next;
         }
         return node;
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
+            Node node = first;
+
+            @Override
+            public boolean hasNext() {
+                return node != null;
+            }
+
+            @Override
+            public Car next() {
+                Car car = node.value;
+                node = node.next;
+                return car;
+            }
+        };
     }
 
     private static class Node {

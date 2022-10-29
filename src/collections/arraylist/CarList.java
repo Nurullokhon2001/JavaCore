@@ -5,7 +5,6 @@ public interface CarList extends CarCollections {
 
     void add(Car car,int index);
 
-
     boolean removeAt(int index);
 
 }

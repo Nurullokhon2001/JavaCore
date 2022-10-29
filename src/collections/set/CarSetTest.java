@@ -47,6 +47,15 @@ public class CarSetTest {
     }
 
     @Test
+    public void forEach() {
+        int index = 0;
+        for (Car car : car) {
+            index++;
+        }
+        assertEquals(index,car.size());
+    }
+
+    @Test
     public void containsElement() {
         assertTrue(car.contains(new Car("Brand", 1)));
         assertFalse(car.contains(new Car("Brand1", 1)));

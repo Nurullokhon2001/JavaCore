@@ -1,6 +1,7 @@
 package collections.arraylist;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class CarArrayListImpl implements CarList {
     public Car[] array = new Car[10];
@@ -36,6 +37,23 @@ public class CarArrayListImpl implements CarList {
 //        }
         array[index] = car;
         size++;
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return new Iterator<Car>() {
+            int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < size;
+            }
+
+            @Override
+            public Car next() {
+                return array[index++];
+            }
+        };
     }
 
     @Override

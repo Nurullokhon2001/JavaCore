@@ -10,8 +10,9 @@ public class CarListTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-       // car = new CarArrayListImpl();
-         car = new CarLinkedListImpl();
+         car = new CarArrayListImpl();
+         car = new CarArrayListImpl();
+        //car = new CarLinkedListImpl();
         for (int i = 0; i < 100; i++) {
             car.add(new Car("Brand" + i, i));
         }
@@ -74,6 +75,15 @@ public class CarListTest {
     public void containsElement() {
         assertTrue(car.contains(new Car("Brand1", 1)));
         assertFalse(car.contains(new Car("Brand", 1)));
+    }
+
+    @Test
+    public void forEach() {
+        int index = 0;
+        for (Car car : car) {
+            index++;
+        }
+        assertEquals(index,car.size());
     }
 
 }

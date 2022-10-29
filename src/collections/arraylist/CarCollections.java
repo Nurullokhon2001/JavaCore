@@ -1,6 +1,6 @@
 package collections.arraylist;
 
-public interface CarCollections {
+public interface CarCollections extends Iterable<Car> {
 
     boolean add(Car car);
 
