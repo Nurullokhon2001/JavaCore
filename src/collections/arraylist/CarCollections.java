@@ -1,15 +1,15 @@
 package collections.arraylist;
 
-public interface CarCollections extends Iterable<Car> {
+public interface CarCollections<T> extends Iterable<T> {
 
-    boolean add(Car car);
+    boolean add(T car);
 
-    boolean remove(Car car);
+    boolean remove(T car);
 
     void clear();
 
     int size();
 
-    boolean contains(Car car);
+    boolean contains(T car);
 
 }

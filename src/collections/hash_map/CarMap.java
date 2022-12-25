@@ -5,17 +5,17 @@ import collections.arraylist.Car;
 import java.util.List;
 import java.util.Set;
 
-interface CarMap {
+interface CarMap<K,V> {
 
-    void put(CarOwner key, Car value);
+    void put(K key, V value);
 
-    Car get(CarOwner key);
+    V get(K key);
 
-    Set<CarOwner> keySet();
+    Set<K> keySet();
 
-    List<Car> values();
+    List<V> values();
 
-    boolean remove(CarOwner key);
+    boolean remove(K key);
 
     int size();
 

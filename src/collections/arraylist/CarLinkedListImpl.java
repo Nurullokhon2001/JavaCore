@@ -2,19 +2,19 @@ package collections.arraylist;
 
 import java.util.Iterator;
 
-public class CarLinkedListImpl implements CarList {
+public class CarLinkedListImpl<T> implements CarList<T> {
 
     private Node first;
     private Node last;
     private int size = 0;
 
     @Override
-    public Car get(int index) {
-        return getNode(index).value;
+    public T get(int index) {
+        return (T) getNode(index).value;
     }
 
     @Override
-    public boolean add(Car car) {
+    public boolean add(T car) {
         if (size == 0) {
             first = new Node(null, car, null);
             last = first;
@@ -28,7 +28,7 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
-    public void add(Car car, int index) {
+    public void add(T car, int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
@@ -49,7 +49,7 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
-    public boolean remove(Car car) {
+    public boolean remove(T car) {
         Node node = first;
         for (int i = 0; i < size; i++) {
             if (node.value.equals(car)) {
@@ -61,7 +61,7 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
-    public boolean contains(Car car) {
+    public boolean contains(T car) {
         Node node = first;
         for (int i = 1; i < size; i++) {
             if (node.value.equals(car)) {
@@ -117,8 +117,8 @@ public class CarLinkedListImpl implements CarList {
     }
 
     @Override
-    public Iterator<Car> iterator() {
-        return new Iterator<Car>() {
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
             Node node = first;
 
             @Override
@@ -127,20 +127,20 @@ public class CarLinkedListImpl implements CarList {
             }
 
             @Override
-            public Car next() {
-                Car car = node.value;
+            public T next() {
+                T car = node.value;
                 node = node.next;
                 return car;
             }
         };
     }
 
-    private static class Node {
+    private  class Node {
         private Node previous;
-        private Car value;
+        private T value;
         private Node next;
 
-        public Node(Node previous, Car value, Node next) {
+        public Node(Node previous, T value, Node next) {
             this.previous = previous;
             this.value = value;
             this.next = next;

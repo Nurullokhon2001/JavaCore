@@ -8,11 +8,11 @@ import static org.junit.Assert.*;
 
 public class CarSetTest {
 
-    CarSet car;
+    CarSet<Car> car;
 
     @Before
     public void setUp() {
-        car = new CarSetImpl();
+        car = new CarSetImpl<>();
         for (int i = 0; i < 100; i++) {
             car.add(new Car("Brand", i));
         }
@@ -49,7 +49,7 @@ public class CarSetTest {
     @Test
     public void forEach() {
         int index = 0;
-        for (Car car : car) {
+        for (Object car : car) {
             index++;
         }
         assertEquals(index,car.size());

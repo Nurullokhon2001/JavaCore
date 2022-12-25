@@ -1,9 +1,9 @@
 package collections.arraylist;
 
-public interface CarList extends CarCollections {
-    Car get(int index);
+public interface CarList<T> extends CarCollections<T> {
+    T get(int index);
 
-    void add(Car car,int index);
+    void add(T car,int index);
 
     boolean removeAt(int index);
 

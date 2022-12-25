@@ -3,28 +3,28 @@ package collections.arraylist;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class CarArrayListImpl implements CarList {
-    public Car[] array = new Car[10];
+public class CarArrayListImpl<T> implements CarList<T> {
+    public Object[] array = new Object[10];
     int size = 0;
 
     @Override
-    public Car get(int index) {
+    public T get(int index) {
         checkIndex(index);
-        return array[index];
+        return (T) array[index];
     }
 
     @Override
-    public boolean add(Car car) {
+    public boolean add(T car) {
         if (size >= array.length) {
             array = Arrays.copyOf(array, array.length * 2);
         }
-        array[size] = car;
+        array[size] =  car;
         size++;
         return true;
     }
 
     @Override
-    public void add(Car car, int index) {
+    public void add(T car, int index) {
         if (size >= array.length) {
             array = Arrays.copyOf(array, array.length * 2);
         }
@@ -35,13 +35,13 @@ public class CarArrayListImpl implements CarList {
 //        for (int i = size; i > index; i--) {
 //            array[i] = array[i - 1];
 //        }
-        array[index] = car;
+        array[index] =  car;
         size++;
     }
 
     @Override
-    public Iterator<Car> iterator() {
-        return new Iterator<Car>() {
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
             int index = 0;
 
             @Override
@@ -50,14 +50,14 @@ public class CarArrayListImpl implements CarList {
             }
 
             @Override
-            public Car next() {
-                return array[index++];
+            public T next() {
+                return (T) array[index++];
             }
         };
     }
 
     @Override
-    public boolean remove(Car car) {
+    public boolean remove(T car) {
         for (int i = 0; i < size - 1; i++) {
             if (array[i] == car) {
                 return removeAt(i);
@@ -78,7 +78,7 @@ public class CarArrayListImpl implements CarList {
     }
 
     @Override
-    public boolean contains(Car car) {
+    public boolean contains(T car) {
         for (int i = 0; i < size; i++) {
             if (array[i].equals(car)) {
                 return true;
@@ -94,7 +94,7 @@ public class CarArrayListImpl implements CarList {
 
     @Override
     public void clear() {
-        array = new Car[10];
+        array = new Object[10];
         size = 0;
     }
 
