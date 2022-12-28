@@ -1,4 +1,4 @@
-package collections.arraylist;
+package collections;
 
 public interface CarCollections<T> extends Iterable<T> {
 

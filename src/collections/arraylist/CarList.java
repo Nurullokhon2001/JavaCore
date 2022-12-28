@@ -1,5 +1,7 @@
 package collections.arraylist;
 
+import collections.CarCollections;
+
 public interface CarList<T> extends CarCollections<T> {
     T get(int index);
 

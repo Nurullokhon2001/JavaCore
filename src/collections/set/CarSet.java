@@ -1,7 +1,6 @@
 package collections.set;
 
-import collections.arraylist.Car;
-import collections.arraylist.CarCollections;
+import collections.CarCollections;
 
 public interface CarSet<T> extends CarCollections<T> {
     boolean add(T car);
